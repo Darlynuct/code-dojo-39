@@ -21,6 +21,9 @@ class Song:
             self.animals_for_song = ORIGINAL_ANIMALS_OF_THE_SONG
         else:
             self.animals_for_song = animals_for_song
+    
+    def position_is_greater_that_one(self, position):
+        return position > 1
 
     def adapt_original_lyrics(self):
         if len(self.animals_for_song) == 1:
@@ -42,7 +45,7 @@ class Song:
                         final_song += "\n" + self.funny_verses[funny_verse_position]
                     else:
                         final_song += "\n" + self.funny_verses[funny_verse_position].format(animal)
-                    if position > 1:
+                    if self.position_is_greater_that_one(position):
                         amount_of_animals_for_use_in_middle_verse = position
                         while amount_of_animals_for_use_in_middle_verse > 0:
                             first_animal_in_verse = self.animals_for_song[amount_of_animals_for_use_in_middle_verse]
@@ -81,5 +84,5 @@ singer = Singer()
 # singer.choose_animals_for_song(['fly'])
 # singer.choose_animals_for_song(['fly', 'spider', 'bird', 'cat', 'dog', 'cow', 'horse', 'monkey'])
 singer.choose_animals_for_song(
-    ['perezoso', 'cucharacha', 'bb8', 'doraemon', 'marvinelmarciano', 'luisitocomunicia', 'messi', 'ibai'])
+    ['lilian', 'yhoamir', 'carlos', 'doraemon', 'marvinelmarciano', 'luisitocomunicia', 'messi', 'ibai'])
 print(singer.sing())
