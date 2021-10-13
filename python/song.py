@@ -48,7 +48,7 @@ class Song:
                             first_animal_in_verse = self.animals_for_song[amount_of_animals_for_use_in_middle_verse]
                             second_animal_in_verse = self.animals_for_song[
                                 amount_of_animals_for_use_in_middle_verse - 1]
-                            if amount_of_animals_for_use_in_middle_verse > 1:
+                            if self.cantidad_de_animales_para_usar_en_el_verso_medio_es_mayor_a_uno (amount_of_animals_for_use_in_middle_verse):
                                 final_song += "\n" + self.first_middle_verse.format(first_animal_in_verse,
                                                                                     second_animal_in_verse)
                             else:
@@ -63,6 +63,9 @@ class Song:
                     else:
                         funny_verse_position += 1
             return final_song
+
+    def cantidad_de_animales_para_usar_en_el_verso_medio_es_mayor_a_uno (self, amount_of_animals_for_use_in_middle_verse):
+        return amount_of_animals_for_use_in_middle_verse > 1
 
 
 class Singer:
